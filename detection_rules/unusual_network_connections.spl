@@ -1,0 +1,5 @@
+index=network_logs sourcetype=firewall
+| stats count by src_ip, dest_ip, dest_port
+| where dest_port NOT IN (22, 80, 443, 3389)  # Exclude common ports like SSH, HTTP, HTTPS, RDP
+| eval attack="Unusual Network Connection"
+| table _time, src_ip, dest_ip, dest_port, count, attack

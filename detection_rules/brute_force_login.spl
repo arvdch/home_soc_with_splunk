@@ -1,0 +1,5 @@
+index=windows_logs sourcetype=WinEventLog:Security
+| stats count by _time, user, src_ip, EventCode
+| where count > 5 AND EventCode="4625"
+| eval attack="Possible Brute Force Attack"
+| table _time, user, src_ip, count, attack

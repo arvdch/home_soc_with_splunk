@@ -1,0 +1,6 @@
+index=sysmon sourcetype=Sysmon:ProcessCreate
+| search Image IN ("powershell.exe", "cmd.exe", "wscript.exe")
+| stats count by _time, Image, CommandLine, User, src_ip
+| where count > 1
+| eval attack="Suspicious Process Creation"
+| table _time, Image, CommandLine, User, src_ip, count, attack
