@@ -3,7 +3,7 @@
 These Splunk rules are designed to detect common attack patterns and suspicious activities in your home SOC setup.
 
 ## Brute Force Login Detection
-- **File:** [brute_force_login.spl](detection_rules/brute_force_login.spl)
+- **File:** [brute_force_login.spl](https://github.com/arvdch/home_soc_with_splunk/blob/main/detection_rules/brute_force_login.spl)
 - **Description:** Detects multiple failed login attempts from the same IP address, typically indicative of a brute-force attack.
 - **Event Source:** Windows Event Logs (EventCode 4625)
 
